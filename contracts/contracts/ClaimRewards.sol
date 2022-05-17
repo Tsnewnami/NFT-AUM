@@ -33,10 +33,6 @@ contract ClaimRewards is ReentrancyGuard, Ownable {
     function depositRewardTokens(address _rewardsToken, uint256 _amount) external nonReentrant() onlyOwner() {
         require(_rewardsToken == address(rewardsToken), "incorrect deposit token");
 
-        if(rewardsToken.allowance(msg.sender, address(this)) < _amount) {
-            rewardsToken.safeApprove(address(this), type(uint256).max);
-        }
-
         rewardsToken.safeTransferFrom(msg.sender, address(this), _amount);
         emit rewardsDeposited(block.timestamp, _amount);
     }
@@ -59,12 +55,12 @@ contract ClaimRewards is ReentrancyGuard, Ownable {
         pendingRewards[msg.sender] = pendingRewards[msg.sender].sub(_amount);
         rewardsToken.safeTransfer(msg.sender, _amount);
 
-        emit claimRedward(msg.sender, _amount); 
+        emit claimReward(msg.sender, _amount); 
     }
      
     /* ========== EVENTS ========== */
 
     event rewardsDeposited(uint256 time, uint256 amount);
-    event claimRedward(address indexed user, uint256 amount);
+    event claimReward(address indexed user, uint256 amount);
     event rewardsUploaded(uint256 totalRewards);
 }

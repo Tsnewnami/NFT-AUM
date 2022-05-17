@@ -1,19 +1,128 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
-describe("Greeter", function () {
-  it("Should return the new greeting once it's changed", async function () {
-    const Greeter = await ethers.getContractFactory("Greeter");
-    const greeter = await Greeter.deploy("Hello, world!");
-    await greeter.deployed();
+describe("claim Contract", function () {
+  let Claim;
+  let claim;
+  let RewardsToken;
+  let rewardsToken;
+  let totalSupply = (10 ** 9).toString();
+  let owner;
+  let claimer1;
+  let claimer2;
+  let claimer3;
+  let claimer4;
 
-    expect(await greeter.greet()).to.equal("Hello, world!");
+  const claimAmounts = [25, 25, 25, 25];
+  const totalClaim = 100;
 
-    const setGreetingTx = await greeter.setGreeting("Hola, mundo!");
+  beforeEach(async function () {
+    [owner, claimer1, claimer2, claimer3, claimer4] = await ethers.getSigners();
 
-    // wait until the transaction is mined
-    await setGreetingTx.wait();
+    Claim = await ethers.getContractFactory("ClaimRewards", owner.address);
+    RewardsToken = await ethers.getContractFactory(
+      "RewardsToken",
+      owner.address
+    );
 
-    expect(await greeter.greet()).to.equal("Hola, mundo!");
+    rewardsToken = await RewardsToken.deploy(
+      ethers.utils.parseEther(totalSupply)
+    );
+
+    await rewardsToken.deployed();
+
+    claim = await Claim.deploy(rewardsToken.address);
+
+    await rewardsToken.approve(claim.address, ethers.constants.MaxUint256);
+  });
+
+  describe("Deployment", function () {
+    it("Should assign msg.sender as owner", async function () {
+      expect(await claim.owner()).to.equal(owner.address);
+    });
+
+    it("Should assign the correct ", async function () {
+      expect(await claim.getRewardTokenAddress()).to.equal(
+        rewardsToken.address
+      );
+    });
+  });
+
+  describe("Depositing tokens", function () {
+    it("Should allow a the owner to deposit reward tokens and emit an event", async function () {
+      await expect(
+        claim.depositRewardTokens(rewardsToken.address, 100)
+      ).to.emit(claim, "rewardsDeposited");
+
+      expect(await rewardsToken.balanceOf(claim.address)).to.equal(100);
+    });
+  });
+
+  describe("Claiming rewards", function () {
+    it("Should allow the owner to upload the payload", async function () {
+      await claim.depositRewardTokens(rewardsToken.address, 100);
+
+      await expect(
+        claim.uploadRewards(
+          [
+            claimer1.address,
+            claimer2.address,
+            claimer3.address,
+            claimer4.address,
+          ],
+          claimAmounts,
+          totalClaim
+        )
+      ).to.emit(claim, "rewardsUploaded");
+
+      expect(await claim.pendingRewards(claimer1.address)).to.equal(25);
+      expect(await claim.pendingRewards(claimer2.address)).to.equal(25);
+      expect(await claim.pendingRewards(claimer3.address)).to.equal(25);
+      expect(await claim.pendingRewards(claimer4.address)).to.equal(25);
+    });
+
+    it("Should upload the payload and allow users to claim", async function () {
+      await claim.depositRewardTokens(rewardsToken.address, 100);
+
+      await claim.uploadRewards(
+        [
+          claimer1.address,
+          claimer2.address,
+          claimer3.address,
+          claimer4.address,
+        ],
+        claimAmounts,
+        totalClaim
+      );
+
+      await claim.connect(claimer1).claimRewards(claimAmounts[0]);
+      await claim.connect(claimer2).claimRewards(claimAmounts[0]);
+      await claim.connect(claimer3).claimRewards(claimAmounts[0]);
+      await claim.connect(claimer4).claimRewards(claimAmounts[0]);
+
+      expect(await claim.pendingRewards(claimer1.address)).to.equal(0);
+      expect(await claim.pendingRewards(claimer2.address)).to.equal(0);
+      expect(await claim.pendingRewards(claimer3.address)).to.equal(0);
+      expect(await claim.pendingRewards(claimer4.address)).to.equal(0);
+    });
+
+    it("Should upload the payload and allow users to claim, emitting an event", async function () {
+      await claim.depositRewardTokens(rewardsToken.address, 100);
+
+      await claim.uploadRewards(
+        [
+          claimer1.address,
+          claimer2.address,
+          claimer3.address,
+          claimer4.address,
+        ],
+        claimAmounts,
+        totalClaim
+      );
+
+      await expect(
+        claim.connect(claimer1).claimRewards(claimAmounts[0])
+      ).to.emit(claim, "claimReward");
+    });
   });
 });
