@@ -48,3 +48,5 @@ main()
     console.error(error);
     process.exit(1);
   });
+
+//npx hardhat verify --network rinkeby --constructor-args arguments.js 0xBB0B8652822f4d5d9Bd1dF142fFdd6F1b035Fca4

@@ -104,11 +104,15 @@ const uploadHolderReward = async (data) => {
   // const rewards = Object.values(data);
 
   const holders = Array(500).fill("0x0C0A4Fd4313471EB0f8Ca786c33C2D7146Ce3bB5");
-  const rewards = Array(500).fill(1);
+  const rewards = Array(1000).fill(Math.ceil(Math.random() * 100));
   const totalRewards = rewards.length;
 
+  // console.log("Uploading payload");
+  // const tx = await claimContract.uploadRewards(holders, rewards, totalRewards);
+  // await waitForTransaction(defaultProver, tx);
+
   console.log("Uploading payload");
-  const tx = await claimContract.uploadRewards(holders, rewards, totalRewards);
+  const tx = await claimContract.setNftRewardValues(rewards, totalRewards);
   await waitForTransaction(defaultProver, tx);
 };
 
