@@ -2,6 +2,24 @@ const axios = require("axios");
 const hmacSHA256 = require("crypto-js/hmac-sha256");
 const sha256 = require("crypto-js/sha256");
 const Hex = require("crypto-js/enc-hex");
+const {
+  initializeApp,
+  applicationDefault,
+  cert,
+} = require("firebase-admin/app");
+const {
+  getFirestore,
+  Timestamp,
+  FieldValue,
+} = require("firebase-admin/firestore");
+
+const serviceAccount = require("../nft-aum-firebase-adminsdk-6gz36-1e036731da.json");
+
+initializeApp({
+  credential: cert(serviceAccount),
+});
+
+const db = getFirestore();
 
 require("dotenv").config();
 const SUBACCOUNT = "1";
