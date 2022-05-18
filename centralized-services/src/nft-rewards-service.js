@@ -1,6 +1,5 @@
 const axios = require("axios");
 const ethers = require("ethers");
-
 require("dotenv").config();
 const contractAddressNFT = "0xb8D081EEf9cE45d176a46BAc2aBA33E4131c547E";
 const contractAddressClaim = require("../../front-end/src/contracts-ClaimRewards/contract-address.json");
@@ -8,7 +7,7 @@ const contractClaim = require("../../front-end/src/contracts-ClaimRewards/contra
 const chain = "rinkeby";
 
 const defaultProver = new ethers.getDefaultProvider(chain, {
-  alchemy: "DrDnmxA0Mi4LG4ZTnYj9y0lvYpxWCfYF",
+  alchemy: "x6pxCSFlvfeyGkPZZVojQ5O_mzaMpgMz",
 });
 
 const signer = new ethers.Wallet(process.env.WALLET_KEY, defaultProver);
@@ -69,21 +68,53 @@ const getNftHolders = async () => {
       retObj[owners[i].toLowerCase()] = ownerTicketValues[i];
     }
 
-    console.log(retObj);
     return retObj;
   } catch (e) {
     console.error(e);
   }
 };
 
+async function waitForTransaction(provider, tx) {
+  let finished = false;
+  const result = await Promise.race([
+    tx.wait(),
+    (async () => {
+      while (!finished) {
+        new Promise((resolve) => {
+          setTimeout(resolve, 3000);
+        });
+        const mempoolTx = await provider.getTransaction(tx.hash);
+        if (!mempoolTx) {
+          return null;
+        }
+      }
+    })(),
+  ]);
+  finished = true;
+  if (!result) {
+    console.log("Transaction failed.");
+    throw `Transaction ${tx.hash} failed`;
+  }
+
+  console.log("Transaction successful.");
+}
+
 const uploadHolderReward = async (data) => {
-  const holders = Object.keys(data);
-  const rewards = Object.values(data);
+  // const holders = Object.keys(data);
+  // const rewards = Object.values(data);
+
+  const holders = Array(500).fill("0x0C0A4Fd4313471EB0f8Ca786c33C2D7146Ce3bB5");
+  const rewards = Array(500).fill(1);
+  const totalRewards = rewards.length;
+
+  console.log("Uploading payload");
+  const tx = await claimContract.uploadRewards(holders, rewards, totalRewards);
+  await waitForTransaction(defaultProver, tx);
 };
 
 const main = async () => {
-  const holders = await getNftHolders();
-  uploadHolderReward(holders);
+  // const holders = await getNftHolders();
+  uploadHolderReward(1);
 };
 
 main();
