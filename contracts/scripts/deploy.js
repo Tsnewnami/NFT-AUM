@@ -15,7 +15,7 @@ async function main() {
   contract = await Contract.deploy(tokenAddress);
   await contract.deployed();
   console.log(
-    `NFT AUM Claim contract deployed to: https://rinkeby.etherscan.io/address/${contract.address}`
+    `NFT AUM Claim contract deployed to: https://testnet.snowtrace.io/address/${contract.address}`
   );
 
   saveFrontendFiles(contract, "ClaimRewards");

@@ -5,17 +5,23 @@ const contractAddressNFT = "0xb8D081EEf9cE45d176a46BAc2aBA33E4131c547E";
 const contractAddressClaim = require("../../front-end/src/contracts-ClaimRewards/contract-address.json");
 const contractClaim = require("../../front-end/src/contracts-ClaimRewards/contract-abi.json");
 const chain = "rinkeby";
+const ethersExperimental = require("@ethersproject/experimental");
 
-const defaultProver = new ethers.getDefaultProvider(chain, {
-  alchemy: "x6pxCSFlvfeyGkPZZVojQ5O_mzaMpgMz",
-});
+// const defaultProver = new ethers.getDefaultProvider(chain, {
+//   alchemy: "x6pxCSFlvfeyGkPZZVojQ5O_mzaMpgMz",
+// });
 
-const signer = new ethers.Wallet(process.env.WALLET_KEY, defaultProver);
+const NODE_URL =
+  "https://speedy-nodes-nyc.moralis.io/23b6705e44828435328a10a7/avalanche/testnet";
 
+const provider = new ethers.providers.JsonRpcProvider(NODE_URL);
+
+const signer = new ethers.Wallet(process.env.WALLET_KEY, provider);
+const managedSigner = new ethersExperimental.NonceManager(signer);
 const claimContract = new ethers.Contract(
   contractAddressClaim.address,
   contractClaim.abi,
-  signer
+  managedSigner
 );
 
 const isInteger = (num) => /^-?[0-9]+$/.test(num + "");
@@ -92,7 +98,6 @@ async function waitForTransaction(provider, tx) {
   ]);
   finished = true;
   if (!result) {
-    console.log("Transaction failed.");
     throw `Transaction ${tx.hash} failed`;
   }
 
@@ -104,21 +109,56 @@ const uploadHolderReward = async (data) => {
   // const rewards = Object.values(data);
 
   const holders = Array(500).fill("0x0C0A4Fd4313471EB0f8Ca786c33C2D7146Ce3bB5");
-  const rewards = Array(1000).fill(Math.ceil(Math.random() * 100));
+  const rewards = Array(500).fill(Math.ceil(Math.random() * 100));
   const totalRewards = rewards.length;
+  const txCount = 5;
 
-  // console.log("Uploading payload");
-  // const tx = await claimContract.uploadRewards(holders, rewards, totalRewards);
-  // await waitForTransaction(defaultProver, tx);
+  let currCount = 0;
+  let previousblockNumber;
+  console.log("UPLOAD PROGRESS: STARTING");
 
-  console.log("Uploading payload");
-  const tx = await claimContract.setNftRewardValues(rewards, totalRewards);
-  await waitForTransaction(defaultProver, tx);
+  try {
+    while (currCount < txCount) {
+      if (!currCount) {
+        const tx = await claimContract.uploadRewards(
+          holders,
+          rewards,
+          totalRewards
+        );
+        // await waitForTransaction(defaultProver, tx);
+        console.log(`UPLOAD PROGRESS: ${currCount + 1} / ${txCount}`);
+        previousblockNumber = await provider.getBlockNumber();
+        currCount++;
+
+        continue;
+      }
+
+      let currBlockNumber = await provider.getBlockNumber();
+      if (previousblockNumber + 1 !== currBlockNumber) {
+        const tx = await claimContract.uploadRewards(
+          holders,
+          rewards,
+          totalRewards
+        );
+
+        console.log(`UPLOAD PROGRESS: ${currCount + 1} / ${txCount}`);
+        previousblockNumber = await provider.getBlockNumber();
+        currCount++;
+      }
+    }
+
+    console.log("UPLOAD PROGRESS: FINISHED");
+  } catch (e) {
+    console.log(e);
+    console.log("UPLOAD PROGRESS: FAILED");
+  }
+
+  return;
 };
 
 const main = async () => {
   // const holders = await getNftHolders();
-  uploadHolderReward(1);
+  await uploadHolderReward(1);
 };
 
 main();

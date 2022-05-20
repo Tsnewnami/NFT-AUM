@@ -10,7 +10,8 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
     console.log(account.address);
   }
 });
-
+const AVALANCHE_TEST_PRIVATE_KEY =
+  "b84fae200a205a27954dc2170bd1bce7f0ededb48f5daadff359ac3679893b04";
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 
@@ -25,6 +26,12 @@ module.exports = {
       accounts: [
         "b84fae200a205a27954dc2170bd1bce7f0ededb48f5daadff359ac3679893b04",
       ],
+    },
+    avalancheTest: {
+      url: "https://api.avax-test.network/ext/bc/C/rpc",
+      gasPrice: 225000000000,
+      chainId: 43113,
+      accounts: [`0x${AVALANCHE_TEST_PRIVATE_KEY}`],
     },
   },
   etherscan: {
