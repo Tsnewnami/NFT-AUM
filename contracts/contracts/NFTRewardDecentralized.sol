@@ -114,17 +114,19 @@ contract ClaimRewardsDecentralized is ReentrancyGuard, Ownable {
 
     /* ========== MODIFIERS ========== */
 
-    // modifier updateReward(address _account, uint256[] calldata _nftIds) {
-    //     if (_account != address(0)) {
-    //         for(uint256 i; i < payouts.length; i++) {
-    //             if (!hasRewardCalculated[msg.sender][i]) {
-    //                 calculateRewards(_account, _nftIds, payouts[i].amount);
-    //                 hasRewardCalculated[msg.sender][i] = true;
-    //             }
-    //         }
-    //     }
-    //     _;
-    // }
+    modifier updateReward(address _account, uint256[] calldata _nftIds) {
+        if (_account != address(0)) {
+            for(uint256 i; i < payouts.length; i++) {
+                for(uint256 j; j < _nftIds.length; j++) {
+                    if (!hasRewardCalculated[_nftIds[j]][i]) {
+                        calculateRewards(_account, _nftIds[j], payouts[i].amount);
+                        hasRewardCalculated[_nftIds[j]][i] = true;
+                    }
+                }
+            }
+        }
+        _;
+    }
      
     /* ========== EVENTS ========== */
 
