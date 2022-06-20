@@ -1,0 +1,32 @@
+.home-title {
+  overflow: hidden;
+  /* Add padding to bottom to allow depth of curve to be visible */
+  padding-bottom: 50px;
+}
+
+/* Style nested div */
+.home-title>div { 
+  background-color: #F3CE8C;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.home-title>div:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+
+  /* Offset the ellipse left-ward by some amount */
+  left: -10%;
+
+  /* Set width percentage to exceed the parent width, plus twice the offset amount */
+  width: 120%;
+
+  border-radius: 100%;
+  background: #F3CE8C;
+  display: block;
+  z-index: -1;
+  height: 200px;
+  bottom: -50px;
+}

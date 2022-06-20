@@ -1,24 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { CssBaseline } from "@mui/material";
+import { Suspense } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import Footer from "./Footer/Footer";
+import Dashboard from "./pages/Dashboard";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CssBaseline />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+      <Router basename={"/"}>
+        <Routes>
+          <Route
+            index
+            element={
+              <Suspense fallback={<div>loading</div>}>
+                <HomePage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <div style={{ minHeight: "100vh" }}>
+                <Suspense fallback={<div>loading</div>}>
+                  <HomePage />
+                </Suspense>
+              </div>
+            }
+          />
+          <Route
+            path="dashboard"
+            element={
+              <div>
+                <Suspense fallback={<div>loading</div>}>
+                  <Dashboard />
+                </Suspense>
+              </div>
+            }
+          />
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   );
 }
