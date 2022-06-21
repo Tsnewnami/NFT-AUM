@@ -20,29 +20,30 @@ export const Wrapper = styled(Container)(({ theme: Theme }) =>
 
 export const CardTitle = styled(Typography)(({ theme: Theme }) =>
   sx({
-    color: "#212529",
+    color: "#141722",
     fontSize: "48px",
-    fontFamily: "ChangaOne",
+    fontFamily: "TTNormsProBold",
     letterSpacing: 1,
   })
 );
 
 export const CardSubTitle = styled(Typography)(({ theme: Theme }) =>
   sx({
-    color: "#545454",
-    fontSize: "24px",
-    fontFamily: "Changa",
+    color: "#141722",
+    fontSize: "28px",
+    fontFamily: "TTNormsProBold",
     letterSpacing: 1,
   })
 );
 
 export const CardText = styled(Typography)(({ theme: Theme }) =>
   sx({
-    color: "#212529",
-    fontSize: "18px",
-    fontFamily: "Changa",
+    color: "#7E7D7D",
+    fontSize: "20px",
+    fontFamily: "TTNormsPro",
     letterSpacing: 1,
     maxWidth: "100%",
+    ml: 1,
   })
 );
 
@@ -68,7 +69,7 @@ export const ButtonTitle = styled(Typography)(({ theme: Theme }) =>
   sx({
     color: "white",
     fontSize: "16px",
-    fontFamily: "ChangaOne",
+    fontFamily: "TTNormsProBold",
     letterSpacing: 1,
   })
 );

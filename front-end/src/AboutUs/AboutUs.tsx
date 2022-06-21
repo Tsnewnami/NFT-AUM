@@ -7,8 +7,8 @@ const AboutUs = () => {
 
   return (
     <Wrapper maxWidth="xl">
-      <AboutUsTitle>LearnMore</AboutUsTitle>
-      <AboutUsTitle>AboutUs</AboutUsTitle>
+      <AboutUsTitle>Learn More</AboutUsTitle>
+      <AboutUsTitle>About Us</AboutUsTitle>
 
       <Grid container columnSpacing={2} sx={{ mt: 7 }}>
         <Grid

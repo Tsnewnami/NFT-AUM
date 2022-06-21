@@ -38,7 +38,7 @@ const Hold = () => {
               automatically enters you into the jackpot!
             </CardText>
             <ButtonCard>
-              <ArrowForwardIcon />
+              <ArrowForwardIcon sx={{ color: "#141722" }} />
             </ButtonCard>
           </Card>
         </Grid>
@@ -61,7 +61,7 @@ const Hold = () => {
               Holding a Bull makes you eligible for Payday Rewards.
             </CardText>
             <ButtonCard>
-              <ArrowForwardIcon />
+              <ArrowForwardIcon sx={{ color: "#141722" }} />
             </ButtonCard>
           </Card>
         </Grid>
@@ -84,7 +84,7 @@ const Hold = () => {
               we start expanding our service offering (bullflip).
             </CardText>
             <ButtonCard>
-              <ArrowForwardIcon />
+              <ArrowForwardIcon sx={{ color: "#141722" }} />
             </ButtonCard>
           </Card>
         </Grid>

@@ -1,4 +1,4 @@
-import { Paper, Grid, Box, Link } from "@mui/material";
+import { Paper, Grid, Box } from "@mui/material";
 import {
   Card,
   CardSubTitle,
@@ -7,12 +7,10 @@ import {
   ButtonBuyDad,
   Wrapper,
   ButtonTitle,
-  ButtonDetails,
 } from "./styles";
 
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import SettingsIcon from "@mui/icons-material/Settings";
 import pc from "../assets/img/pc.png";
-import { docsLink } from "../utils/links";
 
 const Performance = () => {
   return (
@@ -20,7 +18,7 @@ const Performance = () => {
       <Paper
         elevation={0}
         sx={{
-          background: "white",
+          background: "transparent",
           width: "100%",
           borderRadius: "8px",
           py: "48px",
@@ -33,22 +31,34 @@ const Performance = () => {
               <CardTitle>DashBoard </CardTitle>
               <CardTitle sx={{ mt: -2 }}>Performance</CardTitle>
 
-              <CardText paragraph sx={{ mt: 3 }}>
-                Track Stats in Realtime
-              </CardText>
-              <CardText paragraph>
+              <Box sx={{ display: "flex", alignItems: "center", mb: 1, mt: 3 }}>
+                <SettingsIcon sx={{ width: "40px", height: "40px" }} />
+                <CardSubTitle sx={{ ml: 1 }}>
+                  Track Stats in Realtime
+                </CardSubTitle>
+              </Box>
+
+              <CardText paragraph sx={{ ml: "48px" }}>
                 As a Lazy Lions NFT holder, you automatically gain access to our
                 exclusive ROARwards program
               </CardText>
-              <CardText paragraph>DAO Voting & Submissions</CardText>
-              <CardText paragraph>
+              <Box sx={{ display: "flex", alignItems: "center", mb: 1, mt: 3 }}>
+                <SettingsIcon sx={{ width: "40px", height: "40px" }} />
+                <CardSubTitle sx={{ ml: 1 }}>
+                  DAO Voting & Submissions
+                </CardSubTitle>
+              </Box>
+
+              <CardText paragraph sx={{ ml: "48px" }}>
                 Take part in voting on the next business venture or submit your
                 own idea. Every wallet gets one vote regardless on the amount of
                 ducks. Whales are great, but they should not be the deciding
                 factor of our community.
               </CardText>
 
-              <Box sx={{ display: "flex", alignItems: "center", mt: "8px" }}>
+              <Box
+                sx={{ display: "flex", alignItems: "center", mt: "8px", ml: 6 }}
+              >
                 <ButtonBuyDad key="connect" variant="contained">
                   <ButtonTitle>Buy a Dad</ButtonTitle>
                 </ButtonBuyDad>

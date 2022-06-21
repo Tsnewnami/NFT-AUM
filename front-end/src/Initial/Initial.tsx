@@ -2,10 +2,11 @@ import { Grid, Box, Typography } from "@mui/material";
 import {
   Card,
   Wrapper,
-  CardTitle,
+  Title,
   ButtonJoin,
   ButtonTitle,
   ButtonDashboard,
+  SubTitle,
 } from "./styles";
 import space from "../assets/img/space.png";
 
@@ -24,11 +25,11 @@ const AboutUs = () => {
             alignItems: "flex-start",
           }}
         >
-          <CardTitle>5000</CardTitle>
-          <CardTitle>Stressed Dads</CardTitle>
-          <CardTitle>On a Money</CardTitle>
-          <CardTitle>Making Mission</CardTitle>
-          <Typography>The First NFT Hedge Fund On ETH</Typography>
+          <Title>5000</Title>
+          <Title>Stressed Dads</Title>
+          <Title>On a Money</Title>
+          <Title>Making Mission</Title>
+          <SubTitle>The First NFT Hedge Fund On ETH</SubTitle>
           <Box sx={{ display: "flex", mt: 7 }}>
             <ButtonJoin variant="contained">
               <ButtonTitle>Join The Club</ButtonTitle>

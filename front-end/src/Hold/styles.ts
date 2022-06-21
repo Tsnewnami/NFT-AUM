@@ -21,18 +21,18 @@ export const Wrapper = styled(Container)(({ theme: Theme }) =>
 
 export const HoldTitle = styled(Typography)(({ theme: Theme }) =>
   sx({
-    color: "rgba(0, 0, 0, 0.9)",
-    fontSize: "42px",
-    fontFamily: "ChangaOne",
+    color: "#141722",
+    fontSize: "48px",
+    fontFamily: "TTNormsProBold",
     letterSpacing: 1,
   })
 );
 
 export const CardTitle = styled(Typography)(({ theme: Theme }) =>
   sx({
-    color: "#212529",
-    fontSize: "24px",
-    fontFamily: "Changa",
+    color: "#141722",
+    fontSize: "28px",
+    fontFamily: "TTNormsProBold",
     letterSpacing: 1,
     textAlign: "center",
     mt: 2,
@@ -50,12 +50,13 @@ export const CardSubTitle = styled(Typography)(({ theme: Theme }) =>
 
 export const CardText = styled(Typography)(({ theme: Theme }) =>
   sx({
-    color: "#212529",
+    mt: 1,
+    color: "#7E7D7D",
     fontSize: "16px",
-    fontFamily: "Changa",
+    fontFamily: "TTNormsPro",
     letterSpacing: 1,
     textAlign: "center",
-    maxWidth: "257px",
+    maxWidth: "80%",
   })
 );
 

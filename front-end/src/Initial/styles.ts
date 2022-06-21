@@ -29,22 +29,22 @@ export const AboutUsTitle = styled(Typography)(({ theme: Theme }) =>
   })
 );
 
-export const CardTitle = styled(Typography)(({ theme: Theme }) =>
+export const Title = styled(Typography)(({ theme: Theme }) =>
   sx({
-    color: "#212529",
-    fontSize: "24px",
-    fontFamily: "Changa",
+    color: "#141722",
+    fontSize: "68px",
+    fontFamily: "TTNormsProBold",
     letterSpacing: 1,
     textAlign: "center",
-    mt: 2,
+    mt: -2,
   })
 );
 
-export const CardSubTitle = styled(Typography)(({ theme: Theme }) =>
+export const SubTitle = styled(Typography)(({ theme: Theme }) =>
   sx({
-    color: "rgba(0, 0, 0, 0.5)",
-    fontSize: "34px",
-    fontFamily: "Changa",
+    color: "#141722",
+    fontSize: "28px",
+    fontFamily: "TTNormsPro",
     letterSpacing: 1,
   })
 );
@@ -78,8 +78,12 @@ export const ButtonJoin = styled(Button)(({ theme: Theme }) =>
     background: "#141722",
     borderRadius: "48px",
     height: "48px",
-    minWidth: "124px",
-    mr: 3,
+    minWidth: "150px",
+    mr: 2,
+    "&:hover": {
+      background: "#141722",
+      opacity: 0.8,
+    },
   })
 );
 
@@ -89,6 +93,12 @@ export const ButtonDashboard = styled(Button)(({ theme: Theme }) =>
     borderRadius: "48px",
     height: "48px",
     minWidth: "124px",
+    borderWidth: "2px",
+    "&:hover": {
+      borderColor: "#141722",
+      opacity: 0.8,
+      borderWidth: "2px",
+    },
   })
 );
 
@@ -96,7 +106,7 @@ export const ButtonTitle = styled(Typography)(({ theme: Theme }) =>
   sx({
     color: "white",
     fontSize: "16px",
-    fontFamily: "ChangaOne",
+    fontFamily: "TTNormsProBold",
     letterSpacing: 1,
   })
 );

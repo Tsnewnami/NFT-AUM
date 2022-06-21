@@ -16,6 +16,10 @@ export const ButtonDashboard = styled(Button)(({ theme: Theme }) =>
     borderRadius: "48px",
     height: "48px",
     px: 3,
+    "&:hover": {
+      background: "#141722",
+      opacity: 0.8,
+    },
   })
 );
 
@@ -32,7 +36,7 @@ export const TitleSections = styled(Typography)(({ theme: Theme }) =>
   sx({
     color: "rgba(0, 0, 0, 0.75)",
     fontSize: "16px",
-    fontFamily: "ChangaOne",
+    fontFamily: "TTNormsProBold",
     letterSpacing: 1,
   })
 );

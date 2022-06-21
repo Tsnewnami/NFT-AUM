@@ -1,4 +1,4 @@
-declare module "*.ttf";
+declare module "*.otf";
 
 declare module "*.mp4" {
   const src: string;

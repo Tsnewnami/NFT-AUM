@@ -34,20 +34,19 @@ export const Socials = styled(Box)(({ theme: Theme }) =>
 
 export const TitleJoin = styled(Typography)(({ theme: Theme }) =>
   sx({
-    color: "rgba(255, 255, 255, 1)",
+    color: "white",
     fontSize: "48px",
-    fontFamily: "ChangaOne",
+    fontFamily: "TTNormsProBold",
     letterSpacing: 1,
   })
 );
 
 export const SubTitleJoin = styled(Typography)(({ theme: Theme }) =>
   sx({
-    color: "rgba(255, 255, 255, 1)",
+    color: "white",
     fontSize: "24px",
-    fontFamily: "ChangaOne",
+    fontFamily: "TTNormsPro",
     letterSpacing: 1,
-    mb: 2,
   })
 );
 
@@ -64,7 +63,7 @@ export const ButtonTitle = styled(Typography)(({ theme: Theme }) =>
   sx({
     color: "white",
     fontSize: "16px",
-    fontFamily: "ChangaOne",
+    fontFamily: "TTNormsPro",
     letterSpacing: 1,
   })
 );
@@ -75,7 +74,7 @@ export const ContainerWrapper = styled(Container)(({ theme: Theme }) =>
     justifyContent: "space-between",
     alignItems: "center",
     mb: 6,
-    mt: 6,
+    mt: 4,
     [Theme.breakpoints.down("sm")]: {
       flexDirection: "column",
       justifyContent: "center",
@@ -113,7 +112,7 @@ export const Copyright: any = styled(Typography)(({ theme: Theme }) =>
   sx({
     color: "white",
     fontSize: "14px",
-    fontFamily: "Changa",
+    fontFamily: "TTNormsPro",
     letterSpacing: 1,
   })
 );
@@ -151,16 +150,16 @@ export const Title = styled(Typography)(({ theme: Theme }) =>
   sx({
     color: "#878787",
     fontSize: "16px",
-    fontFamily: "ChangaOne",
+    fontFamily: "TTNormsProBold",
     letterSpacing: 1,
   })
 );
 
 export const TextNormal = styled(Typography)(({ theme: Theme }) =>
   sx({
-    color: "#FFF",
+    color: "white",
     fontSize: "16px",
-    fontFamily: "Changa",
+    fontFamily: "TTNormsPro",
     letterSpacing: 1,
     "&: hover": {
       color: "#0066FF",

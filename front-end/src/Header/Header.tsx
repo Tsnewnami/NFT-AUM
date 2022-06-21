@@ -49,7 +49,7 @@ const Header = (props: any) => {
         elevation={0}
       >
         <Container maxWidth="xl">
-          <Toolbar disableGutters sx={{ py: matches ? 2 : 1 }}>
+          <Toolbar disableGutters sx={{ pb: matches ? 2 : 1, pt: 5 }}>
             {matches && (
               <Menu
                 onClick={() => setOpen(true)}
