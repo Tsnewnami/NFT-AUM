@@ -27,7 +27,7 @@ export const ButtonTitle = styled(Typography)(({ theme: Theme }) =>
   sx({
     color: "white",
     fontSize: "16px",
-    fontFamily: "ChangaOne",
+    fontFamily: "TTNormsPro",
     letterSpacing: 1,
   })
 );

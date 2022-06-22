@@ -1,5 +1,14 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
-import { Card, CardText, CardTitle, Title, Wrapper } from "./styles";
+import {
+  Card,
+  CardText,
+  CardTitle,
+  ClaimButtonText,
+  ClaimText,
+  ClaimValueText,
+  Title,
+  Wrapper,
+} from "./styles";
 
 const Payday = () => {
   const elevation: number = 8;
@@ -70,14 +79,19 @@ const Payday = () => {
           <Box
             sx={{ display: "flex", flexDirection: "column", color: "white" }}
           >
-            <Typography>Claimable</Typography>
-            <Typography>$15,000</Typography>
+            <ClaimText>Claimable</ClaimText>
+            <ClaimValueText>$15,000</ClaimValueText>
           </Box>
           <Button
             variant="contained"
-            sx={{ borderRadius: "48px", background: "white", color: "#141722" }}
+            sx={{
+              borderRadius: "48px",
+              background: "white",
+              color: "#141722",
+              p: 2,
+            }}
           >
-            Claim Rewards
+            <ClaimButtonText>Claim Rewards</ClaimButtonText>
           </Button>
         </Box>
       </Wrapper>

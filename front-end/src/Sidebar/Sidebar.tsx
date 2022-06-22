@@ -33,7 +33,17 @@ export default function Sidebar(props: any) {
           src={avatar}
           sx={{ width: "192px" }}
         />
-        <Typography>Trader God</Typography>
+        <Typography
+          sx={{
+            color: "#141722",
+            fontSize: "28px",
+            fontFamily: "TTNormsProBold",
+            letterSpacing: 1,
+            mt: 2,
+          }}
+        >
+          Trader God
+        </Typography>
       </Toolbar>
       <List sx={{ pt: 4 }}>
         {[
@@ -50,6 +60,10 @@ export default function Sidebar(props: any) {
                 borderRadius: "16px",
                 background: content === index ? "#141722" : "white",
                 color: content === index ? "white" : '"#141722"',
+                "&:hover": {
+                  background: "#141722",
+                  color: "white",
+                },
               }}
             >
               <ListItemText primary={text} />
