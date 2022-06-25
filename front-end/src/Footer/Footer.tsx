@@ -1,4 +1,4 @@
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Link } from "@mui/material";
 import {
   Wrapper,
   ContainerWrapper,
@@ -17,19 +17,14 @@ import {
   ButtonSocials,
   ButtonTitle,
 } from "./styles";
-import daomakers from "../assets/img/daomakers.svg";
-import medium from "../assets/img/medium.svg";
-import logo from "../assets/img/logoWhite.svg";
 import twitter from "../assets/img/twitterWhite.svg";
 import discord from "../assets/img/discordWhite.svg";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import { discordLink, docsLink, mediumLink, twitterLink } from "../utils/links";
 import { useLocation } from "react-router-dom";
 
 function Footer() {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("sm"));
   const { pathname } = useLocation();
   return (
     <Wrapper>

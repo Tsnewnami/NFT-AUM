@@ -1,13 +1,4 @@
-import {
-  Box,
-  FormControl,
-  Typography,
-  Theme,
-  Button,
-  Paper,
-  Container,
-  IconButton,
-} from "@mui/material";
+import { Box, Typography, Paper, IconButton } from "@mui/material";
 import { styled, experimental_sx as sx } from "@mui/system";
 
 export const Wrapper = styled(Box)(({ theme: Theme }) =>
@@ -17,6 +8,7 @@ export const Wrapper = styled(Box)(({ theme: Theme }) =>
     alignItems: "flex-start",
     mt: 9,
     px: 7,
+    mb: "100px",
   })
 );
 
@@ -25,6 +17,15 @@ export const Title = styled(Typography)(({ theme: Theme }) =>
     color: "#141722",
     fontSize: "28px",
     fontFamily: "TTNormsProBold",
+    letterSpacing: 1,
+  })
+);
+
+export const SubTitle = styled(Typography)(({ theme: Theme }) =>
+  sx({
+    color: "#141722",
+    fontSize: "20px",
+    fontFamily: "TTNormsPro",
     letterSpacing: 1,
   })
 );
@@ -110,7 +111,7 @@ export const ClaimValueText = styled(Typography)(({ theme: Theme }) =>
   })
 );
 
-export const ClaimButtonText = styled(Typography)(({ theme: Theme }) =>
+export const ClaimButtonText: any = styled(Typography)(({ theme: Theme }) =>
   sx({
     color: "#141722",
     fontSize: "16px",

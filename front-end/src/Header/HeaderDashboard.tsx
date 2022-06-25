@@ -17,7 +17,6 @@ import logo from "../assets/img/logo.png";
 import discord from "../assets/img/discord.svg";
 import twitter from "../assets/img/twitter.svg";
 import medium from "../assets/img/medium.svg";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { discordLink, mediumLink, twitterLink } from "../utils/links";
 
 const HeaderDashboard = (props: any) => {

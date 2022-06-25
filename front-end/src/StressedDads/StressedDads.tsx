@@ -10,7 +10,6 @@ import {
 
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import dog from "../assets/img/dog.png";
-import { docsLink } from "../utils/links";
 
 const LearnMore = () => {
   return (

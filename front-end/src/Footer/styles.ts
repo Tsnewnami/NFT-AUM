@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Theme, Button, Link } from "@mui/material";
+import { Box, Container, Typography, Button, Link } from "@mui/material";
 import { styled, experimental_sx as sx } from "@mui/system";
 
 export const Wrapper = styled(Box)(({ theme: Theme }) =>

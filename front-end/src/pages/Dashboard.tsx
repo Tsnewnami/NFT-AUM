@@ -15,7 +15,7 @@ function Dashboard() {
       <Box
         sx={{
           flex: 1,
-          height: "100vh",
+          minHeight: "100vh",
           background: "#F3CE8C",
         }}
       >

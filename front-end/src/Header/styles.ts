@@ -1,4 +1,4 @@
-import { Box, FormControl, Typography, Theme, Button } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import { styled, experimental_sx as sx } from "@mui/system";
 
 export const BoxSocialsConnect = styled(Box)(({ theme: Theme }) =>

@@ -1,4 +1,5 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid } from "@mui/material";
+import { useState } from "react";
 import {
   Card,
   CardText,
@@ -6,12 +7,27 @@ import {
   ClaimButtonText,
   ClaimText,
   ClaimValueText,
+  SubTitle,
   Title,
   Wrapper,
 } from "./styles";
 
 const Payday = () => {
   const elevation: number = 8;
+  const [proposals, setProposals] = useState([
+    {
+      title: "Mens Health",
+      amount: "Donation Amount",
+    },
+    {
+      title: "Mens Health",
+      amount: "Donation Amount",
+    },
+    {
+      title: "Mens Health",
+      amount: "Donation Amount",
+    },
+  ]);
 
   return (
     <>
@@ -94,6 +110,50 @@ const Payday = () => {
             <ClaimButtonText>Claim Rewards</ClaimButtonText>
           </Button>
         </Box>
+        <Title sx={{ mt: 9 }}>Monthly Mens Inititives</Title>
+        <SubTitle>Vote every month on 3 charity proposals</SubTitle>
+        {proposals.map((el, index) => (
+          <Box
+            sx={{
+              display: "flex",
+              width: "100%",
+              height: "112px",
+              justifyContent: "space-between",
+              alignItems: "center",
+              mt: 3,
+              background: "#F1F1F4",
+              px: 4,
+              borderRadius: "16px",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <ClaimText sx={{ color: "#141722" }}>
+                Initive {index}{" "}
+                <span style={{ color: "#7E7D7D" }}>{el.amount}</span>
+              </ClaimText>
+              <ClaimValueText sx={{ color: "#141722" }}>
+                {el.title}
+              </ClaimValueText>
+            </Box>
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: "48px",
+                background: "white",
+                color: "#141722",
+                py: 2,
+                px: 4,
+              }}
+            >
+              <ClaimButtonText>Vote</ClaimButtonText>
+            </Button>
+          </Box>
+        ))}
       </Wrapper>
     </>
   );

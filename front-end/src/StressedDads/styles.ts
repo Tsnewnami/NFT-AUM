@@ -1,12 +1,4 @@
-import {
-  Box,
-  FormControl,
-  Typography,
-  Theme,
-  Button,
-  Paper,
-  Container,
-} from "@mui/material";
+import { Box, Typography, Button, Container } from "@mui/material";
 import { styled, experimental_sx as sx } from "@mui/system";
 
 export const Wrapper = styled(Container)(({ theme: Theme }) =>

@@ -1,6 +1,5 @@
-import { Grid, Box, Typography } from "@mui/material";
+import { Grid, Box } from "@mui/material";
 import {
-  Card,
   Wrapper,
   Title,
   ButtonJoin,
@@ -11,8 +10,6 @@ import {
 import space from "../assets/img/space.png";
 
 const AboutUs = () => {
-  const elevation: number = 4;
-
   return (
     <Wrapper maxWidth="xl">
       <Grid container columnSpacing={2} sx={{ mt: 7 }}>
