@@ -10,7 +10,7 @@ const AboutUs = () => {
       <AboutUsTitle>Learn More</AboutUsTitle>
       <AboutUsTitle>About Us</AboutUsTitle>
 
-      <Grid container columnSpacing={2} sx={{ mt: 7 }}>
+      <Grid container columnSpacing={2} sx={{ mt: 7, px: "96px" }}>
         <Grid
           item
           sm={6}

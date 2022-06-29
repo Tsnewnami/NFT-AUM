@@ -19,6 +19,7 @@ import {
 } from "./styles";
 import twitter from "../assets/img/twitterWhite.svg";
 import discord from "../assets/img/discordWhite.svg";
+import dad from "../assets/img/dad.png";
 import { useTheme } from "@mui/material/styles";
 import { discordLink, docsLink, mediumLink, twitterLink } from "../utils/links";
 import { useLocation } from "react-router-dom";
@@ -59,7 +60,7 @@ function Footer() {
               alignItems: "center",
             }}
           >
-            <img src={discord} alt="bscwin" width="50px" />
+            <img src={dad} alt="bscwin" width="50px" />
           </Box>
           <WrapperColumn sx={{ ml: 2 }}>
             <Copyright>StressedDads</Copyright>

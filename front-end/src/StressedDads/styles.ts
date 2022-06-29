@@ -14,7 +14,7 @@ export const CardTitle = styled(Typography)(({ theme: Theme }) =>
   sx({
     color: "#141722",
     fontSize: "48px",
-    fontFamily: "TTNormsProBold",
+    fontFamily: "TTNormsProExtraBold",
     letterSpacing: 1,
   })
 );
@@ -32,7 +32,7 @@ export const CardText = styled(Typography)(({ theme: Theme }) =>
   sx({
     color: "#7E7D7D",
     fontSize: "20px",
-    fontFamily: "TTNormsPro",
+    fontFamily: "TTNormsProMedium",
     letterSpacing: 1,
     maxWidth: "100%",
     ml: 1,

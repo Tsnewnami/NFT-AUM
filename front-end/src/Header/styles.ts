@@ -6,7 +6,7 @@ export const BoxSocialsConnect = styled(Box)(({ theme: Theme }) =>
     display: "flex",
     alignItems: "center",
     justifyContent: "space-evenly",
-    mr: 2,
+    mr: 1,
   })
 );
 

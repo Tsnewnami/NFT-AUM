@@ -20,9 +20,8 @@ const Performance = () => {
         sx={{
           background: "transparent",
           width: "100%",
-          borderRadius: "8px",
           py: "48px",
-          px: "48px",
+          px: "96px",
         }}
       >
         <Grid container columnSpacing={5}>

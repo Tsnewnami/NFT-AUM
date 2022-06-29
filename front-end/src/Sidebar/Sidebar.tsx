@@ -37,7 +37,7 @@ export default function Sidebar(props: any) {
           sx={{
             color: "#141722",
             fontSize: "28px",
-            fontFamily: "TTNormsProBold",
+            fontFamily: "TTNormsProExtraBold",
             letterSpacing: 1,
             mt: 2,
           }}
@@ -66,7 +66,13 @@ export default function Sidebar(props: any) {
                 },
               }}
             >
-              <ListItemText primary={text} />
+              <ListItemText
+                primary={text}
+                primaryTypographyProps={{
+                  fontFamily: "TTNormsProBold",
+                  fontSize: "16px",
+                }}
+              />
             </ListItemButton>
           </ListItem>
         ))}

@@ -1,4 +1,4 @@
-import { Grid, Box } from "@mui/material";
+import { Grid, Box, useMediaQuery, useTheme } from "@mui/material";
 import {
   Wrapper,
   Title,
@@ -9,10 +9,13 @@ import {
 } from "./styles";
 import space from "../assets/img/space.png";
 
-const AboutUs = () => {
+const Initial = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("xl"));
+
   return (
     <Wrapper maxWidth="xl">
-      <Grid container columnSpacing={2} sx={{ mt: 7 }}>
+      <Grid container columnSpacing={2} sx={{ mt: 7, px: "96px" }}>
         <Grid
           item
           sm={6}
@@ -43,7 +46,6 @@ const AboutUs = () => {
           sm={6}
           sx={{
             display: "flex",
-            flexDirection: "column",
             alignItems: "flex-start",
           }}
         >
@@ -54,4 +56,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default Initial;

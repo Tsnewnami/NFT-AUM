@@ -5,6 +5,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TTNormsPro from "./assets/fonts/TTNormsProRegular.otf";
 import TTNormsProBold from "./assets/fonts/TTNormsProBold.otf";
+import TTNormsProExtraBold from "./assets/fonts/TTNormsProExtraBold.otf";
+import TTNormsProMedium from "./assets/fonts/TTNormsProMedium.otf";
 import Footer from "./Footer/Footer";
 import Dashboard from "./pages/Dashboard";
 import HomePage from "./pages/HomePage";
@@ -39,7 +41,12 @@ const mytheme = createTheme({
     },
   },
   typography: {
-    fontFamily: ["TTNormsPro", "TTNormsProBold"].join(","),
+    fontFamily: [
+      "TTNormsPro",
+      "TTNormsProBold",
+      "TTNormsProExtraBold",
+      "TTNormsProMedium",
+    ].join(","),
     button: {
       textTransform: "none",
     },
@@ -64,6 +71,28 @@ const mytheme = createTheme({
               fontDisplay: "swap",
               fontWeight: 400,
               src: `local('TTNormsProBold'), url(${TTNormsProBold}) format('truetype')`,
+              unicodeRange:
+                "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF",
+            },
+          },
+          {
+            "@font-face": {
+              fontFamily: "TTNormsProExtraBold",
+              fontStyle: "normal",
+              fontDisplay: "swap",
+              fontWeight: 400,
+              src: `local('TTNormsProExtraBold'), url(${TTNormsProExtraBold}) format('truetype')`,
+              unicodeRange:
+                "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF",
+            },
+          },
+          {
+            "@font-face": {
+              fontFamily: "TTNormsProMedium",
+              fontStyle: "normal",
+              fontDisplay: "swap",
+              fontWeight: 400,
+              src: `local('TTNormsProMedium'), url(${TTNormsProMedium}) format('truetype')`,
               unicodeRange:
                 "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF",
             },

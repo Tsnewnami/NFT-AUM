@@ -9,6 +9,7 @@ export const Wrapper = styled(Box)(({ theme: Theme }) =>
     justifyContent: "center",
     alignItems: "center",
     background: "#212529",
+    px: 2,
   })
 );
 

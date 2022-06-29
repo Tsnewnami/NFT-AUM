@@ -14,7 +14,7 @@ export const AboutUsTitle: any = styled(Typography)(({ theme: Theme }) =>
   sx({
     color: "#141722",
     fontSize: "48px",
-    fontFamily: "TTNormsProBold",
+    fontFamily: "TTNormsProExtraBold",
     letterSpacing: 1,
   })
 );
@@ -26,6 +26,9 @@ export const CardTitle = styled(Typography)(({ theme: Theme }) =>
     fontFamily: "TTNormsProBold",
     letterSpacing: 1,
     mt: 3,
+    [Theme.breakpoints.down("xl")]: {
+      fontSize: "24px",
+    },
   })
 );
 
@@ -39,5 +42,6 @@ export const Card = styled(Paper)(({ theme: Theme }) =>
     cursor: "context-menu",
     borderRadius: "8px",
     width: "100%",
+    boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.1)",
   })
 );

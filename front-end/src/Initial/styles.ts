@@ -24,10 +24,13 @@ export const Title = styled(Typography)(({ theme: Theme }) =>
   sx({
     color: "#141722",
     fontSize: "68px",
-    fontFamily: "TTNormsProBold",
+    fontFamily: "TTNormsProExtraBold",
     letterSpacing: 1,
     textAlign: "center",
     mt: -2,
+    [Theme.breakpoints.down("xl")]: {
+      fontSize: "58px",
+    },
   })
 );
 
@@ -35,7 +38,7 @@ export const SubTitle = styled(Typography)(({ theme: Theme }) =>
   sx({
     color: "#141722",
     fontSize: "28px",
-    fontFamily: "TTNormsPro",
+    fontFamily: "TTNormsProMedium",
     letterSpacing: 1,
   })
 );

@@ -14,7 +14,7 @@ export const HoldTitle = styled(Typography)(({ theme: Theme }) =>
   sx({
     color: "#141722",
     fontSize: "48px",
-    fontFamily: "TTNormsProBold",
+    fontFamily: "TTNormsProExtraBold",
     letterSpacing: 1,
   })
 );
@@ -43,11 +43,11 @@ export const CardText = styled(Typography)(({ theme: Theme }) =>
   sx({
     mt: 1,
     color: "#7E7D7D",
-    fontSize: "16px",
+    fontSize: "20px",
     fontFamily: "TTNormsPro",
     letterSpacing: 1,
     textAlign: "center",
-    maxWidth: "80%",
+    maxWidth: "90%",
   })
 );
 
@@ -56,12 +56,14 @@ export const Card = styled(Paper)(({ theme: Theme }) =>
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    justifyContent: "space-between",
     background: "#FFFFFF",
-    height: "501px",
+    minHeight: "501px",
     p: 2,
     cursor: "context-menu",
     borderRadius: "8px",
     width: "100%",
+    boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.1)",
   })
 );
 

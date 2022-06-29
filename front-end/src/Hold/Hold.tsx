@@ -18,7 +18,7 @@ const Hold = () => {
       <HoldTitle>Why Hold</HoldTitle>
       <HoldTitle>Stressed Dads?</HoldTitle>
 
-      <Grid container columnSpacing={2} sx={{ mt: 7 }}>
+      <Grid container columnSpacing={2} sx={{ mt: 7, px: "96px" }}>
         <Grid
           item
           sm={6}
@@ -27,16 +27,24 @@ const Hold = () => {
         >
           <Card elevation={elevation}>
             <Box
-              component="img"
-              alt="Lottoticket"
-              src={Coinbag}
-              sx={{ height: "219px" }}
-            />
-            <CardTitle>Weekly Rewards</CardTitle>
-            <CardText>
-              Our bulls are the luckiest on Cardano. Holding a Bull
-              automatically enters you into the jackpot!
-            </CardText>
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <Box
+                component="img"
+                alt="Lottoticket"
+                src={Coinbag}
+                sx={{ height: "219px" }}
+              />
+              <CardTitle>Weekly Rewards</CardTitle>
+              <CardText>
+                Our bulls are the luckiest on Cardano. Holding a Bull
+                automatically enters you into the jackpot!
+              </CardText>
+            </Box>
             <ButtonCard>
               <ArrowForwardIcon sx={{ color: "#141722" }} />
             </ButtonCard>
@@ -50,16 +58,24 @@ const Hold = () => {
         >
           <Card elevation={elevation}>
             <Box
-              component="img"
-              alt="Coinbag"
-              src={Coinbag}
-              sx={{ height: "219px" }}
-            />
-            <CardTitle>Weekly Rewards</CardTitle>
-            <CardText>
-              Get bullish. We're bringing the first Lottery token to Cardano,
-              Holding a Bull makes you eligible for Payday Rewards.
-            </CardText>
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <Box
+                component="img"
+                alt="Coinbag"
+                src={Coinbag}
+                sx={{ height: "219px" }}
+              />
+              <CardTitle>Payout Rewards</CardTitle>
+              <CardText>
+                Get bullish. We're bringing the first Lottery token to Cardano,
+                Holding a Bull makes you eligible for Payday Rewards.
+              </CardText>
+            </Box>
             <ButtonCard>
               <ArrowForwardIcon sx={{ color: "#141722" }} />
             </ButtonCard>
@@ -73,16 +89,24 @@ const Hold = () => {
         >
           <Card elevation={elevation}>
             <Box
-              component="img"
-              alt="arrow"
-              src={Coinbag}
-              sx={{ height: "219px" }}
-            />
-            <CardTitle>Weekly Rewards</CardTitle>
-            <CardText>
-              We don't just rely on luck. We're all savy Business Bulls. So Q3
-              we start expanding our service offering (bullflip).
-            </CardText>
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <Box
+                component="img"
+                alt="arrow"
+                src={Coinbag}
+                sx={{ height: "219px" }}
+              />
+              <CardTitle>Weekly Rewards</CardTitle>
+              <CardText>
+                We don't just rely on luck. We're all savy Business Bulls. So Q3
+                we start expanding our service offering (bullflip).
+              </CardText>
+            </Box>
             <ButtonCard>
               <ArrowForwardIcon sx={{ color: "#141722" }} />
             </ButtonCard>

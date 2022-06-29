@@ -49,7 +49,10 @@ const Header = (props: any) => {
         elevation={0}
       >
         <Container maxWidth="xl">
-          <Toolbar disableGutters sx={{ pb: matches ? 2 : 1, pt: 5 }}>
+          <Toolbar
+            disableGutters
+            sx={{ pb: matches ? 2 : 1, pt: 5, px: "96px" }}
+          >
             {matches && (
               <Menu
                 onClick={() => setOpen(true)}
@@ -67,7 +70,7 @@ const Header = (props: any) => {
                     onClick={() => {
                       handleNavigation(index);
                     }}
-                    sx={{ my: 2, display: "block", borderRadius: 1000, mr: 4 }}
+                    sx={{ my: 2, display: "block", borderRadius: 1000, mr: 2 }}
                   >
                     <TitleSections>{page}</TitleSections>
                   </Button>
